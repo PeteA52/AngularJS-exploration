@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="githubViewer">
+
+<head>
+  <script data-require="angular.js@1.2.24" data-semver="1.2.24" 
+          src="https://code.angularjs.org/1.2.24/angular.js"></script>
+  <link href="style.css" rel="stylesheet" />
+  <script src="script.js"></script>
+  <script src="githubService.js"></script>
+</head>
+
+<body ng-controller="MainControllerName">
+  <h1>{{message}}</h1>
+
+  <div>{{error}}</div>
+  <form name="searchUser" ng-submit="search(username)">
+    <input type="search" required placeholder="Username to find" ng-model="username">
+    <input type="submit" value="Search">
+  </form>
+  <!-- single quotes in ng-include mean to take the value as a literal path, and
+    not try to evaluate the value as an expression against scope -->
+  <div ng-include="'userDetails.html'" ng-show="user">
+  </div>
+</body>
+
+</html>
